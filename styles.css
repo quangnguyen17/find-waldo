@@ -21,6 +21,10 @@
     background-color: rgba(50, 50, 50, 0.5);
 }
 
+.bg-dark-gray {
+    background-color: rgb(25, 25, 25);
+}
+
 .position-fixed {
     position: fixed;
     z-index: 5;
@@ -28,4 +32,8 @@
 
 ul {
     vertical-align: middle;
+}
+
+.h-full {
+    height: 100vh;
 }
