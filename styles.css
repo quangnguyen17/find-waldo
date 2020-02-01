@@ -3,14 +3,14 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    width: 10vh;
-    width: 10vh;
+    width: 5vh;
+    height: 5vh;
 }
 
 .bg-blank {
     background-color: white;
-    width: 10vh;
-    height: 10vh;
+    width: 5vh;
+    height: 5vh;
 }
 
 .bg-black {
@@ -22,7 +22,7 @@
 }
 
 .bg-dark-gray {
-    background-color: rgb(25, 25, 25);
+    background-color: rgb(20, 20, 20);
 }
 
 .position-fixed {
@@ -36,4 +36,13 @@ ul {
 
 .h-full {
     height: 100vh;
+}
+
+.w-70 {
+    width: 70%;
+}
+
+#waldo {
+    width: 100px;
+    height: 100px;
 }
