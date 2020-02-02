@@ -58,13 +58,13 @@ function waldoClicked() {
 
 function draw() {
     var x = Math.floor(Math.random() * 20) + 0;
-    var y = Math.floor(Math.random() * 28) + 0;
+    var y = Math.floor(Math.random() * 20) + 0;
     var code = ``;
 
     for (var row = 0; row < 20; row++) {
         code += `<div class="row game-content m-0 p-0" style="height: 5vh">`;
 
-        for (var col = 0; col < 28; col++) {
+        for (var col = 0; col < 20; col++) {
             var waldo = (col == x && row == y) ? "waldo" : "blank";
             code += `<div class="col bg-${waldo} waldo-hovering m-0 p-0"></div>`;
         }
@@ -83,24 +83,24 @@ function handleHovering() {
     $('.waldo-hovering').hover(function () {
         $(this).animate({
             opacity: "1",
-            height: "+=20",
-        }, 225)
+            height: "+=10",
+        }, 250)
     }, function () {
         $(this).animate({
             opacity: "0",
-            height: "-=20",
-        }, 225);
+            height: "-=10",
+        }, 250);
     });
 
     $('#waldo').hover(function () {
         $(this).animate({
-            width: "+=20",
-            height: "+=20",
+            width: "+=10",
+            height: "+=10",
         }, 150)
     }, function () {
         $(this).animate({
-            width: "-=20",
-            height: "-=20",
+            width: "-=10",
+            height: "-=10",
         }, 150);
     });
 }

@@ -25,30 +25,19 @@
 <body class="bg-black">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-10 h-full d-inline-block p-0">
+            <div class="col-9 h-full d-inline-block p-0">
                 <div class="container-fluid bg-black d-inline-block m-0 p-0 game"></div>
             </div>
-            <div class="col-2 w-25 bg-dark-gray h-full d-inline-block text-center p-4 text-light overflow-auto">
-                <h3 class="font-weight-bold mt-2 mb-0">Find Waldo!</h3>
+            <div class="col-3 w-25 bg-dark-gray h-full d-inline-block text-center p-5 text-light overflow-auto">
+                <h1 class="font-weight-bold mb-0">Find Waldo!</h1>
                 <img id="waldo" class="mt-4 mb-2" src="waldo.jpg" alt="">
                 <p>"Waldo: Find me."</p>
-                <h4 class="timer font-weight-light my-4">0s</h4>
-
-                <ul class="p-0 text-secondary">
-                    <li>
-                        <button id="worst" class="btn btn-outline-danger rounded-0 score-button my-1">Worst</button>
-                    </li>
-                    <li>
-                        <button id="average"
-                            class="btn btn-outline-warning rounded-0 score-button my-1">Average</button>
-
-                    </li>
-                    <li>
-                        <button id="best" class="btn btn-outline-success rounded-0 score-button my-1">Best</button>
-
-                    </li>
-                </ul>
-
+                <h3 class="timer font-weight-light my-4">0s</h3>
+                <div class="btns">
+                    <button id="worst" class="btn btn-outline-danger rounded-0 score-button my-1">Worst</button>
+                    <button id="average" class="btn btn-outline-warning rounded-0 score-button my-1">Average</button>
+                    <button id="best" class="btn btn-outline-success rounded-0 score-button my-1">Best</button>
+                </div>
                 <table class="table table-striped text-light my-4">
                     <thead>
                         <tr>
