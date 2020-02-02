@@ -1,55 +1,112 @@
 
-var waldo = { row: 0, col: 0 };
-var points = 0;
+var time = 59;
+var timeTable = [];
 
-function hideWaldo() {
-    $(".bg-waldo").css("opacity", "0");
-    $(".bg-blank").css("opacity", "0");
+function getStats(timeArr) {
+    var min = timeArr[0], max = timeArr[0], sum = timeArr[0];
+    var count = 1;
+
+    for (var index in timeArr) {
+        if (timeArr[index] > max) {
+            max = timeArr[index];
+        }
+
+        if (timeArr[index] < min) {
+            min = timeArr[index]
+        }
+
+        sum += timeArr[index];
+        count++;
+    }
+
+    return { worst: max, average: Math.floor(sum / count), best: min };
+}
+
+function displayTime(timeStamp) {
+    var hours = Math.floor(timeStamp / 60 / 60);
+    var minutes = Math.floor(timeStamp / 60) - (hours * 60);
+    var seconds = timeStamp % 60;
+    return `${hours > 0 ? `${hours}h ` : ``}${minutes > 0 ? `${minutes}m ` : ``}${seconds}s`;
+}
+
+function startTimer() {
+    setInterval(() => {
+        time++;
+        $(`.timer`).text(displayTime(time));
+    }, 1000);
+}
+
+function waldoClicked() {
+    draw();
+    timeTable.push(time);
+    time = 0;
+
+    var tableRow = `<tr>
+        <th scope="row" class="font-weight-normal">${timeTable.length}</th>
+        <th class="font-weight-light">${displayTime(timeTable[timeTable.length - 1])}</th>
+    </tr>`;
+
+    $('tbody').append(tableRow);
+
+    var scoreRatings = getStats(timeTable);
+    for (var key in scoreRatings) {
+        var firstCapKey = key.charAt(0).toUpperCase() + key.slice(1);
+        var value = `<span class="font-weight-bold">${firstCapKey}</span><br>${displayTime(scoreRatings[key])}`
+        $(`#${key}`).html(value);
+    }
 }
 
 function draw() {
-    // waldo.row = Math.floor(Math.random() * 120) + 0;
-    // waldo.col = Math.floor(Math.random() * 120) + 0;
-
+    var x = Math.floor(Math.random() * 20) + 0;
+    var y = Math.floor(Math.random() * 28) + 0;
     var code = ``;
 
     for (var row = 0; row < 20; row++) {
         code += `<div class="row game-content m-0 p-0" style="height: 5vh">`;
 
-        for (var col = 0; col < 30; col++) {
-            var waldo = (col == 0 && row == 0) ? "waldo" : "blank";
+        for (var col = 0; col < 28; col++) {
+            var waldo = (col == x && row == y) ? "waldo" : "blank";
             code += `<div class="col bg-${waldo} waldo-hovering m-0 p-0"></div>`;
         }
 
         code += `</div>`;
     }
 
-    console.log(code);
     $('.game').html(code);
-
-    hideWaldo();
+    $(".bg-waldo").css("opacity", "0");
+    $(".bg-blank").css("opacity", "0");
+    $(".bg-waldo").on("click", waldoClicked);
     handleHovering();
-
-    $(".bg-waldo").on("click", function () {
-        draw();
-        points++;
-        $("#points").text(`Points: ${points}`);
-    });
 }
 
 function handleHovering() {
-    $(".waldo-hovering").hover(function () {
+    $('.waldo-hovering').hover(function () {
         $(this).animate({
             opacity: "1",
+            height: "+=20",
         }, 200)
     }, function () {
         $(this).animate({
-            opacity: "0"
+            opacity: "0",
+            height: "-=20",
         }, 200);
+    });
+
+    $('#waldo').hover(function () {
+        $(this).animate({
+            width: "+=20",
+            height: "+=20",
+        }, 150)
+    }, function () {
+        $(this).animate({
+            width: "-=20",
+            height: "-=20",
+        }, 150);
     });
 }
 
 $(document).ready(function () {
     draw();
+    startTimer();
 });
 

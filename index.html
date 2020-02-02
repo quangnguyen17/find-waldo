@@ -22,16 +22,37 @@
     <title>Find Waldo</title>
 </head>
 
-<body class="bg-dark">
+<body class="bg-black">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-10 h-full d-inline-block p-0">
+            <div class="col-9 h-full d-inline-block p-0">
                 <div class="container-fluid bg-black d-inline-block m-0 p-0 game"></div>
             </div>
-            <div class="col-2 w-25 bg-dark-gray h-full d-inline-block text-center p-3 text-light">
+            <div class="col-3 w-25 bg-dark-gray h-full d-inline-block text-center p-5 text-light overflow-auto">
                 <h1 class="font-weight-bold">Find Waldo!</h1>
                 <img id="waldo" class="mt-4 mb-2" src="waldo.jpg" alt="">
                 <p>"Waldo: Find me."</p>
+
+                <h2 class="timer font-weight-light my-5">0s</h2>
+                <div class="buttons mt-5">
+                    <button id="worst" class="btn btn-outline-danger rounded-0 score-button"><span
+                            class="font-weight-bold text-center">Worst</span><br></button>
+                    <button id="average" class="btn btn-outline-warning rounded-0 score-button"><span
+                            class="font-weight-bold">Average</span><br></button>
+                    <button id="best" class="btn btn-outline-success rounded-0 score-button"><span
+                            class="font-weight-bold">Best</span><br></button>
+                </div>
+
+                <table class="table table-striped text-light mt-3 mb-2">
+                    <thead>
+                        <tr>
+                            <th scope="col">Round</th>
+                            <th scope="col">Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
