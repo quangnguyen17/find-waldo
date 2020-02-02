@@ -1,5 +1,5 @@
 
-var time = 59;
+var time = 0;
 var timeTable = [];
 
 function getStats(timeArr) {
