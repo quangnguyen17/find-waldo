@@ -30,10 +30,6 @@
     z-index: 5;
 }
 
-ul {
-    list-style-type: none;
-}
-
 .h-full {
     height: 100vh;
 }
