@@ -51,7 +51,7 @@ function waldoClicked() {
     var scoreRatings = getStats(timeTable);
     for (var key in scoreRatings) {
         var firstCapKey = key.charAt(0).toUpperCase() + key.slice(1);
-        var value = `<span class="font-weight-bold">${firstCapKey}</span><br>${displayTime(scoreRatings[key])}`
+        var value = `${firstCapKey}: ${displayTime(scoreRatings[key])}`
         $(`#${key}`).html(value);
     }
 }
@@ -84,12 +84,12 @@ function handleHovering() {
         $(this).animate({
             opacity: "1",
             height: "+=20",
-        }, 200)
+        }, 225)
     }, function () {
         $(this).animate({
             opacity: "0",
             height: "-=20",
-        }, 200);
+        }, 225);
     });
 
     $('#waldo').hover(function () {
