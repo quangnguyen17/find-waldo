@@ -6,3 +6,4 @@ Instructions:
 - Mouse over grids to unveil hidden blocks until found Waldo.
 - Click on Waldo upon finding out where he is to save the game and repeat the process.
 - Scores and times will be tracked on the right side.
+- https://quangnguyen17.github.io/find-waldo/
